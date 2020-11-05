@@ -3,7 +3,7 @@ Blaster pewPew;
 
 float myFloatVal = (float)(Math.random()*301.0)+50;
 public boolean explosive = false;
-  
+
 void setup()
 {
   size(400, 400);
@@ -11,7 +11,9 @@ void setup()
   pions = new Particle[500];
   for(int i = 0; i < pions.length; i++){
   pions[i] = new Particle();
-  pions[i/4] = new OddballParticle();
+  for(int j = 0; j <= 50; j++){
+  pions[j] = new OddballParticle();
+  }
   }
 }
 
@@ -22,13 +24,11 @@ void draw()
  pewPew = new Blaster();
  pewPew.appear();
  for(int i = 0; i < pions.length; i++){
-   pions[i/4].show();
    pions[i].show();
    if(pewPew.laserY <= myFloatVal + 9 && pewPew.laserY >= myFloatVal - 9 && explosive == false && mousePressed == true){
    explosive = true;
    }
    if(explosive == true){
-   pions[i/2].explode();
    pions[i].explode();
      textAlign(CENTER, CENTER);
      textSize(20);
@@ -41,6 +41,7 @@ void draw()
 void mousePressed(){
   pewPew.shoot();
 }
+
 class Particle
 {
   float myX, myY, mySpeed, myAngle, mySize;
@@ -74,7 +75,7 @@ class OddballParticle extends Particle
     myX = 300;
     myY = myFloatVal;
     mySpeed = (float)(Math.random()*2)-4.0;
-    mySize = 10;
+    mySize = 15;
     myAngle = (float)(Math.random()*2*Math.PI);
     myColourR = (int)(Math.random()*21);
     myColourG = (int)(Math.random()*21)+80;
@@ -123,4 +124,3 @@ class Blaster{
     }
   }
 }
-
