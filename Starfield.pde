@@ -3,9 +3,6 @@ Blaster pewPew;
 
 float myFloatVal = (float)(Math.random()*301.0)+50;
 public boolean explosive = false;
-
-int points = 0;
-int shots = 0;
   
 void setup()
 {
@@ -29,7 +26,6 @@ void draw()
    pions[i].show();
    if(pewPew.laserY <= myFloatVal + 9 && pewPew.laserY >= myFloatVal - 9 && explosive == false && mousePressed == true){
    explosive = true;
-     points++;
    }
    if(explosive == true){
    pions[i/2].explode();
@@ -37,7 +33,6 @@ void draw()
      textAlign(CENTER, CENTER);
      textSize(20);
      text("YOU WIN!", 200, 190);
-     text("ACCURACY: " + (float)points/shots * 100 + "%", 200, 210);
      }
    }
 }
@@ -45,7 +40,6 @@ void draw()
 
 void mousePressed(){
   pewPew.shoot();
-  shots++;
 }
 class Particle
 {
