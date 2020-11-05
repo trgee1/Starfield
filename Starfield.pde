@@ -26,6 +26,8 @@ void draw()
  for(int i = 0; i < pions.length; i++){
    pions[i/4].show();
    pions[i].show();
+   pions[i/4].explode();
+   pions[i].explode();
    if(pewPew.laserY <= myFloatVal + 9 && pewPew.laserY >= myFloatVal - 9 && explosive == false && mousePressed == true){
    explosive = true;
    points++;
