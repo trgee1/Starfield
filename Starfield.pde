@@ -65,10 +65,8 @@ class Particle
     myColourB = (int)(Math.random()*31);
 }
    void explode(){
-     if(explosive == true){
      myX += Math.cos(myAngle)*mySpeed;
      myY += Math.sin(myAngle)*mySpeed;
-     }
    }
     void show(){
       fill(myColourR, myColourG, myColourB);
