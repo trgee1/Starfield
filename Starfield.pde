@@ -28,6 +28,7 @@ void draw()
    pions[i].show();
    if(pewPew.laserY <= myFloatVal + 9 && pewPew.laserY >= myFloatVal - 9 && explosive == false && mousePressed == true){
    explosive = true;
+   points++;
    }
    if(explosive == true){
    pions[i/2].explode();
@@ -35,14 +36,18 @@ void draw()
      textAlign(CENTER, CENTER);
      textSize(20);
      text("YOU WIN!", 200, 190);
+     text("ACCURACY: " + points/shots * 100 + "%", 200, 210);
      }
    }
   }
 
+
 void mousePressed(){
+  if(explosive == false){
+  shots++;
+  }
   pewPew.shoot();
 }
-
 class Particle
 {
   float myX, myY, mySpeed, myAngle, mySize;
